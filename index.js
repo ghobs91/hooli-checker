@@ -44,8 +44,20 @@ function linkBuyerToFacility() {
       var ts3 = new Date();
       console.log("completed function at " + ts3.toISOString())
 
+        // as per the instructions, prints the output file to console
+      fs.readFile('set-differences.csv', (err, setDifferencesFile) => {
+        const setDifferencesParsed = parse(setDifferencesFile, {
+          columns: true
+        })
+
+        setDifferencesParsed.forEach(function (setDifferencesEntry){
+          console.log(setDifferencesEntry);
+        })
+      })
+
     })
   }) 
+
 }
 
 linkBuyerToFacility();
